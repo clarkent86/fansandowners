@@ -5,6 +5,15 @@ A one-page site for the fan petition **[Give Fans a Chance to Own the Future of 
 The page has three things on it: the petition text (word for word from Change.org), a link to sign, and a live signature counter.
 Signatures are collected only on Change.org. This site collects nothing: it has no forms, cookies, or trackers.
 
+## Branches
+
+| Branch | Live at |
+|---|---|
+| `main` | https://fansandowners.com (www and fansandowners.org redirect here) |
+| `dev` | a private staging copy, hidden from search engines |
+
+Work on `dev` (or a branch off it), then open a pull request from `dev` into `main` when it's ready to go live.
+
 ## Editing
 
 | What | Where |
