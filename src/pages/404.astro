@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import FanMark from '../components/FanMark.astro';
+import Icon from '../components/Icon.astro';
+---
+<Base title="Page not found" noindex>
+  <section class="center-page">
+    <div class="wrap stack">
+      <FanMark size={84} spin />
+      <p class="kicker">Error 404</p>
+      <h1>This page flew off</h1>
+      <p>We couldn't find what you were looking for. The petition, the vision, and the plan are all on the home page.</p>
+      <a class="btn" href="/">Back home <Icon name="arrow" /></a>
+    </div>
+  </section>
+</Base>

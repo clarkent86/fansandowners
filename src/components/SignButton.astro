@@ -1,0 +1,7 @@
+---
+import Icon from './Icon.astro';
+import { SITE } from '../site.config';
+interface Props { label?: string }
+const { label = 'Sign the petition on Change.org' } = Astro.props;
+---
+<a class="btn" href={SITE.petitionUrl} rel="noopener">{label} <Icon name="arrow" /></a>

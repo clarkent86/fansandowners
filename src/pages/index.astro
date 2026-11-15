@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import SignButton from '../components/SignButton.astro';
+import Tracker from '../components/Tracker.astro';
+---
+<!-- The text below mirrors the Change.org petition word for word. Change it there first, then here. -->
+<Base>
+  <section class="hero">
+    <div class="hero-burst" aria-hidden="true"></div>
+    <div class="wrap narrow">
+      <p class="kicker">A fan petition</p>
+      <h1>Give fans a chance to <span class="hl">own</span> the future of <span class="outline">DC</span></h1>
+      <p class="hero-lede">Superman, Batman, Wonder Woman, and countless others have shaped generations of fans. What if the people who love these characters could help own and protect the company behind them?</p>
+      <Tracker />
+      <div class="hero-actions"><SignButton /></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap narrow">
+      <div class="paper petition prose">
+        <h2>The Ask</h2>
+        <p>We call on the current owners of DC's publishing and entertainment businesses to seriously consider a future sale (in whole or in part) to a company owned collectively by individual fans.</p>
+
+        <h2>The Vision</h2>
+        <ul>
+          <li><strong>Ownership for everyday fans.</strong> Ownership stakes priced so ordinary people can take part, not just billionaires and institutions.</li>
+          <li><strong>Real ownership, real votes.</strong> Owners would elect the board, with limits so no single person or group can dominate.</li>
+          <li><strong>Built for individuals.</strong> Ownership designed to stay with individual fans rather than corporations or investment funds.</li>
+          <li><strong>Creative independence.</strong> Creative leadership free to make great stories, and fair treatment for the creators behind them.</li>
+          <li><strong>Long-term stewardship.</strong> Priority on protecting and growing DC's legacy for generations, not short-term profit.</li>
+        </ul>
+
+        <h2>Why Sign</h2>
+        <p>This would be an enormous undertaking, with billions of dollars and complex legal and financial planning involved. We know that. Your signature shows how much public support exists, which is the first step toward finding out whether it can be done.</p>
+
+        <h2>Important</h2>
+        <p>Signing expresses support for exploring this idea only. It is not an investment, a commitment, or a promise of future ownership. No money is requested or accepted. This petition is not an offer to sell, or a solicitation of an offer to buy, any security. We are not affiliated with or endorsed by DC, Warner Bros. Discovery, Paramount, Skydance or their affiliates.</p>
+
+        <p><SignButton /></p>
+      </div>
+    </div>
+  </section>
+</Base>

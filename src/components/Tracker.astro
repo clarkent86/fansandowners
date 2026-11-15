@@ -1,0 +1,52 @@
+---
+/** Live signature count. /signatures.json is refreshed on the server from the Change.org page. */
+---
+<div class="tracker" data-tracker>
+  <p class="tracker-count"><span data-sig-count>&mdash;</span> <span class="tracker-label"><span data-sig-noun>fans have</span> signed</span></p>
+  <progress max="10" value="0" data-sig-bar aria-label="Signatures toward the next milestone"></progress>
+  <p class="tracker-meta fine">
+    <span>Next milestone: <b data-sig-goal>&mdash;</b></span>
+    <span class="live"><span class="pulse" aria-hidden="true"></span> Live from Change.org</span>
+  </p>
+</div>
+
+<script>
+  const MILESTONES = [10, 25, 50, 100, 250, 500, 1e3, 2.5e3, 5e3, 1e4, 2.5e4, 5e4, 1e5, 2.5e5, 5e5, 1e6, 2.5e6, 5e6, 1e7];
+  const nf = new Intl.NumberFormat('en-US');
+  const el = document.querySelector<HTMLElement>('[data-tracker]');
+  let shown = 0;
+
+  function render(count: number) {
+    if (!el) return;
+    const goal = MILESTONES.find((m) => m > count) ?? Math.ceil((count + 1) / 1e6) * 1e6;
+    const bar = el.querySelector<HTMLProgressElement>('[data-sig-bar]')!;
+    const out = el.querySelector('[data-sig-count]')!;
+    el.querySelector('[data-sig-goal]')!.textContent = nf.format(goal);
+    el.querySelector('[data-sig-noun]')!.textContent = count === 1 ? 'fan has' : 'fans have';
+    bar.max = goal;
+    const from = shown;
+    shown = count;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || from === count) {
+      out.textContent = nf.format(count); bar.value = count; return;
+    }
+    const t0 = performance.now();
+    const step = (t: number) => {
+      const p = Math.min(1, (t - t0) / 1200), v = Math.round(from + (count - from) * (1 - (1 - p) ** 3));
+      out.textContent = nf.format(v); bar.value = v;
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  async function refresh() {
+    try {
+      const res = await fetch('/signatures.json', { cache: 'no-cache' });
+      if (res.ok) {
+        const { count } = await res.json();
+        if (typeof count === 'number') render(count);
+      }
+    } catch { /* leave the placeholder */ }
+  }
+  refresh();
+  setInterval(() => document.visibilityState === 'visible' && refresh(), 120_000);
+</script>

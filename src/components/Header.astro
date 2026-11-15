@@ -1,0 +1,13 @@
+---
+import FanMark from './FanMark.astro';
+import { SITE } from '../site.config';
+---
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Power to the Fan, home">
+      <FanMark size={38} />
+      <span class="brand-name">Power to the <span>Fan</span></span>
+    </a>
+    <a class="btn btn--small" href={SITE.petitionUrl} rel="noopener">Sign</a>
+  </div>
+</header>
