@@ -14,7 +14,7 @@ OUT = os.environ.get("SIGNATURES_OUT", "dist/signatures.json")
 
 
 def fetch():
-    req = urllib.request.Request(PETITION, headers={"User-Agent": "Mozilla/5.0 (powertothe.fan signature tracker)"})
+    req = urllib.request.Request(PETITION, headers={"User-Agent": "Mozilla/5.0 (fansandowners.com signature tracker)"})
     with urllib.request.urlopen(req, timeout=30) as r:
         html = r.read().decode("utf-8", "replace")
     m = re.search(r'"signatureCount":\{[^}]*?"total":(\d+)[^}]*\}', html)

@@ -1,6 +1,6 @@
 // Renders the business cards, a mockup scene, the social share image, and the touch icon.
 //
-//   npm run cards                       QR -> https://powertothe.fan
+//   npm run cards                       QR -> https://fansandowners.com
 //   CARD_URL=https://... npm run cards  QR -> any URL
 //
 // Cards are US standard 3.5" x 2" with a 1/8" bleed, drawn at 300 dpi and exported at 600 dpi.
@@ -17,7 +17,7 @@ const OUT = join(HERE, 'out');
 const PUBLIC = join(HERE, '..', 'public');
 mkdirSync(OUT, { recursive: true });
 
-const URL_ = process.env.CARD_URL ?? 'https://powertothe.fan';
+const URL_ = process.env.CARD_URL ?? 'https://fansandowners.com';
 const DOMAIN = new URL(URL_).host.replace(/^www\./, '');
 
 const C = {
@@ -100,9 +100,9 @@ function frontDark() {
   <rect width="${W}" height="${H}" fill="url(#fadeA)"/>
   ${fanMark(735, 95, 290, { rot: 18 })}
   <g font-family="${DISPLAY}" font-weight="900" fill="${C.text}">
-    <text x="${SAFE + 8}" y="205" font-size="118" letter-spacing="1">POWER</text>
-    <text x="${SAFE + 8}" y="310" font-size="118" letter-spacing="1">TO THE</text>
-    <text x="${SAFE + 2}" y="478" font-size="210" fill="${C.volt}" letter-spacing="2">FAN</text>
+    <text x="${SAFE + 8}" y="215" font-size="150" letter-spacing="1">FANS</text>
+    <text x="${SAFE + 8}" y="318" font-size="104" letter-spacing="1">AND</text>
+    <text x="${SAFE + 2}" y="478" font-size="176" fill="${C.volt}" letter-spacing="2">OWNERS</text>
   </g>
   <rect x="${SAFE + 8}" y="512" width="70" height="5" fill="${C.flare}"/>
   <text x="${SAFE + 8}" y="566" font-family="${BODY}" font-weight="600" font-size="31" fill="${C.text}" letter-spacing="0.5">Of the fans. By the fans. For the fans.</text>
@@ -124,7 +124,7 @@ function frontVolt() {
   </g>
   <rect x="${SAFE + 6}" y="440" width="${W - 2 * SAFE - 12}" height="4" fill="${C.ink}"/>
   ${fanMark(SAFE + 6, 482, 88)}
-  <text x="${SAFE + 112}" y="538" font-family="${DISPLAY}" font-weight="900" font-size="52" fill="${C.ink}" letter-spacing="1">POWER TO THE FAN</text>
+  <text x="${SAFE + 112}" y="538" font-family="${DISPLAY}" font-weight="900" font-size="52" fill="${C.ink}" letter-spacing="1">FANS AND OWNERS</text>
   <text x="${W - SAFE - 6}" y="538" text-anchor="end" font-family="${BODY}" font-weight="600" font-size="34" fill="${C.ink}">${DOMAIN}</text>`;
 }
 
@@ -221,7 +221,7 @@ for (const [name, body] of Object.entries(cards)) {
     <rect width="${OW}" height="${OH}" fill="url(#ogfade)"/>
     ${fanMark(840, 150, 300, { rot: 18 })}
     ${fanMark(70, 62, 64)}
-    <text x="150" y="108" font-family="${DISPLAY}" font-weight="900" font-size="44" fill="${C.text}" letter-spacing="1">POWER TO THE <tspan fill="${C.volt}">FAN</tspan></text>
+    <text x="150" y="108" font-family="${DISPLAY}" font-weight="900" font-size="44" fill="${C.text}" letter-spacing="1">FANS AND <tspan fill="${C.volt}">OWNERS</tspan></text>
     <g font-family="${DISPLAY}" font-weight="900" fill="${C.text}" font-size="104">
       <text x="66" y="262">GIVE FANS A CHANCE</text>
       <text x="66" y="364">TO <tspan fill="${C.volt}">OWN</tspan> THE FUTURE</text>

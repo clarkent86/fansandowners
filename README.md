@@ -1,4 +1,4 @@
-# Power to the Fan
+# Fans and Owners
 
 A one-page site for the fan petition **[Give Fans a Chance to Own the Future of DC](https://www.change.org/p/let-the-fans-own-dc)**.
 

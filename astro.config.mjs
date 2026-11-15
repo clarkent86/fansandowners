@@ -2,9 +2,9 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
-// The site is built for its long-term home (https://powertothe.fan) but can be built for any
+// The site is built for its long-term home (https://fansandowners.com) but can be built for any
 // host: SITE_URL=https://staging.example.com npm run build
-const site = process.env.SITE_URL ?? 'https://powertothe.fan';
+const site = process.env.SITE_URL ?? 'https://fansandowners.com';
 
 export default defineConfig({
   site,
